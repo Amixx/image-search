@@ -1,13 +1,34 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.image-wrapper {
+  background: gainsboro;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.image {
+  width: 100%;
+}
+
+@keyframes spinner {
+  0% {
+    transform: translate3d(-50%, -50%, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate3d(-50%, -50%, 0) rotate(360deg);
+  }
+}
+
+.spinner {
+  margin-top: 48px;
+}
+
+.spinner::before {
+  content: "";
+  position: absolute;
+  animation: 1s linear infinite spinner;
+  animation-play-state: inherit;
+  border: solid 4px gainsboro;
+  border-bottom-color: darkgray;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  transform: translate3d(-50%, -50%, 0);
+  will-change: transform;
 }
