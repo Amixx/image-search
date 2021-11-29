@@ -3,7 +3,7 @@ import './SearchInput.css';
 
 import { InputGroup, FormControl, Button } from "react-bootstrap";
 
-const SearchInput = ({setSearchValue, submitSearch}) => {
+const SearchInput = ({setQuery, submitSearch}) => {
     
     const handleKeyUp = e => {
         if (e.charCode === 13) submitSearch();
@@ -13,7 +13,7 @@ const SearchInput = ({setSearchValue, submitSearch}) => {
         <InputGroup>
             <FormControl
                 placeholder="Type something..."
-                onChange={e => setSearchValue(e.target.value)}
+                onChange={e => setQuery(e.target.value)}
                 onKeyPress={handleKeyUp}
             />
             <Button onClick={submitSearch}>Search</Button>
