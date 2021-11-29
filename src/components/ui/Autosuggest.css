@@ -1,0 +1,18 @@
+.react-autosuggest__suggestions-list {
+    list-style-type: none;
+    line-height: 1.5;
+    padding-left: 0;
+}
+
+.react-autosuggest__suggestion {
+    cursor: pointer;
+    border-radius: 7px;
+}
+
+.react-autosuggest__suggestion:not(:last-child){
+    margin-top: 4px;
+}
+
+.react-autosuggest__suggestion--highlighted {
+    background: whitesmoke;
+}

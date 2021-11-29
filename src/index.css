@@ -1,3 +1,5 @@
+@import-normalize;
+
 .image-wrapper {
   background: gainsboro;
 }

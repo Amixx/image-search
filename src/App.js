@@ -42,6 +42,7 @@ function App() {
 		if(recentQueries) localStorage.setItem("recentQueries", JSON.stringify(recentQueries));
 	}, [recentQueries]);
 
+	const fillerColumn = () => <Col lg={4} sm={2}></Col>
 
     return (
         <div className="App">
@@ -52,7 +53,11 @@ function App() {
 					</Col>
 				</Row>
                 <Row>
-                    <SearchInput setQuery={setQuery} submitSearch={submitSearch}></SearchInput>
+					{fillerColumn()}
+					<Col lg={4} sm={8}>
+                    	<SearchInput suggestions={recentQueries} query={query} setQuery={setQuery} submitSearch={submitSearch}></SearchInput>
+					</Col>
+					{fillerColumn()}
                 </Row>
 				<Row className="mt-3">
 					{
