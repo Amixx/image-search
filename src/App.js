@@ -4,7 +4,7 @@ import SearchInput from "./components/ui/SearchInput";
 import Layout from "./components/layout/Layout";
 import ImageCard from "./components/ui/ImageCard";
 import Spinner from "./components/ui/Spinner";
-import useUnsplashApi from "./useUnsplashApi";
+import useUnsplashApi from "./hooks/useUnsplashApi";
 
 const APP_NAME = "image-search-app";
 const unsplashRefLink = `https://unsplash.com/?utm_source=${APP_NAME}&utm_medium=referral`;

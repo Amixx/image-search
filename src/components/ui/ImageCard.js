@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Button } from "react-bootstrap";
 import Spinner from "./Spinner";
-import UserContext from "../../UserContext";
+import UserContext from "../../context/UserContext";
 
 const ImageCard = ({ photo, likePhoto, unlikePhoto, likeRequestPhotoId }) => {
     return (

@@ -10,7 +10,7 @@ import {
 	Routes,
 	Route,
 } from "react-router-dom";
-import UserContext from "./UserContext";
+import UserContext from "./context/UserContext";
 
 const Index = () => {
 	const [ accessToken, setAccessToken ] = useState(null);

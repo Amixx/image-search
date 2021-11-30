@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Container, Row, Button } from "react-bootstrap";
-import UserContext from "../../UserContext";
+import UserContext from "../../context/UserContext";
 
 const createAuthUri = () => {
 	const redirectUri = encodeURI("http://192.168.224.1:3000/auth");

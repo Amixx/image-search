@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 import UnsplashApi from "./UnsplashApi";
-import UserContext from "./UserContext";
+import UserContext from "../context/UserContext";
 
 const useUnsplashApi = () => {
     const [ photos, setPhotos ] = useState(null);
@@ -9,6 +9,7 @@ const useUnsplashApi = () => {
     const { accessToken } = useContext(UserContext);
 
     const loadPhotos = query => {
+        setPhotos(null);
         setPhotosLoading(true);
         UnsplashApi.search.getPhotos({ query })
             .then(({ response }) => {
