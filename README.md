@@ -14,8 +14,8 @@ The app allows users to search and view photos as well as like/unlike them after
 ## Expectations
 
 The project expects two environment variables to be set:
-`REACT_APP_UNSPLASH_ACCESS_KEY={your unsplash api access key}`
-`REACT_APP_UNSPLASH_SECRET_KEY={your unsplash api secret key}`
+1. `REACT_APP_UNSPLASH_ACCESS_KEY={your unsplash api access key}`
+2. `REACT_APP_UNSPLASH_SECRET_KEY={your unsplash api secret key}`
 If these variables are not accessible, the application will not work as intended!
 
 ## Available Scripts
