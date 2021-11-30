@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 import { Button } from "react-bootstrap";
-import Autosuggest from 'react-autosuggest';
+import Autosuggest from "react-autosuggest";
 import "./Autosuggest.css";
 
 const SearchInput = ({ query, setQuery, suggestions, submitSearch }) => {

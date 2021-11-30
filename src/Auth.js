@@ -1,15 +1,13 @@
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import React, { useState, useEffect } from 'react';
-import { useSearchParams, useNavigate  } from 'react-router-dom';
-import { Row, Col } from 'react-bootstrap';
-import Layout from './Layout';
+import React, { useEffect, useContext  } from "react";
+import { useSearchParams, useNavigate  } from "react-router-dom";
+import UserContext from "./UserContext";
 
-function App() {
+function Auth() {
     const [searchParams] = useSearchParams();
-    const code = searchParams.get('code');
+    const code = searchParams.get("code");
     let navigate = useNavigate();
 
+    const { setAccessToken } = useContext(UserContext);
 
     useEffect(() => {
         const redirectUri = encodeURI("http://192.168.224.1:3000/auth");
@@ -24,26 +22,18 @@ function App() {
         fetch("https://unsplash.com/oauth/token", {
             method: "POST",
             headers: {
-                'Accept': 'application/json, text/plain, */*',
-                'Content-Type': 'application/json'
+                "Accept": "application/json, text/plain, */*",
+                "Content-Type": "application/json"
             },
             body: JSON.stringify(payload),
         }).then(res => res.json()).then(({ access_token }) => {
-            localStorage.setItem("accessToken", access_token);
+            setAccessToken(access_token);
             navigate("/", { replace: true });
         });
-    }, [navigate, code]);
+    }, [navigate, code, setAccessToken]);
 
 
-    return (
-        <Layout>
-            <Row className="mt-5 mb-3">
-                <Col>
-                    <p>You are being authenticated, please hold on!</p>
-                </Col>
-            </Row>
-        </Layout>
-    );
+    return <p className="text-center mt-5 mb-3">You are being authenticated, please hold on!</p>;
 }
 
-export default App;
+export default Auth;

@@ -1,11 +1,34 @@
 @import-normalize;
 
-.image-wrapper {
+.ImageCard__Wrapper {
   background: gainsboro;
+  margin-bottom: 8px;
+  position: relative;
 }
 
-.image {
+.ImageCard__Image {
   width: 100%;
+}
+
+.ImageCard__Footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 4px;
+}
+
+.ImageCard__UserLink {
+  color: white;
+}
+
+.ImageCard__UserLink:hover {
+  color: white;
 }
 
 @keyframes spinner {
