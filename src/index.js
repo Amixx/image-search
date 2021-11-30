@@ -14,13 +14,7 @@ import UserContext from "./UserContext";
 
 const Index = () => {
 	const [ accessToken, setAccessToken ] = useState(null);
-	const [ userData, setUserData ] = useState(null);
-	const contextValue = {
-		accessToken,
-		setAccessToken,
-		userData,
-		setUserData,
-	}
+	const contextValue = { accessToken, setAccessToken, isAuthenticated: () => !!accessToken, }
 
 	return (
 		<UserContext.Provider value={contextValue}>

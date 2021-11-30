@@ -1,5 +1,6 @@
 @import-normalize;
 
+/* if the project was larger, I would definitely use SCSS or some JSS library for styling! */
 .ImageCard__Wrapper {
   background: gainsboro;
   margin-bottom: 8px;

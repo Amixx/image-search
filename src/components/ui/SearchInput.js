@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import { Button } from "react-bootstrap";
 import Autosuggest from "react-autosuggest";
 import "./Autosuggest.css";
@@ -26,7 +25,7 @@ const SearchInput = ({ query, setQuery, suggestions, submitSearch }) => {
 
     const shouldRenderSuggestions = () => true;
 
-    const handleKeyUp = e => {
+    const handleKeypress = e => {
         if (e.charCode === 13) submitSearch();
     }
 
@@ -35,7 +34,7 @@ const SearchInput = ({ query, setQuery, suggestions, submitSearch }) => {
         value: query,
         className: "form-control",
         onChange: (e, {newValue }) => setQuery(newValue),
-        onKeyPress: handleKeyUp
+        onKeyPress: handleKeypress
     };
 
 

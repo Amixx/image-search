@@ -3,7 +3,7 @@ import { useSearchParams, useNavigate  } from "react-router-dom";
 import UserContext from "./UserContext";
 
 function Auth() {
-    const [searchParams] = useSearchParams();
+    const [ searchParams ] = useSearchParams();
     const code = searchParams.get("code");
     let navigate = useNavigate();
 

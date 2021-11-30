@@ -4,25 +4,6 @@ import Spinner from "./Spinner";
 import UserContext from "../../UserContext";
 
 const ImageCard = ({ photo, likePhoto, unlikePhoto, likeRequestPhotoId }) => {
-    const { accessToken, userData } = useContext(UserContext);
-
-    const isAuthenticated = !!accessToken;
-    const photoLikedByUser = isAuthenticated && userData.likedPhotos.includes(photo.id);
-    const displaySpinner = photo.id === likeRequestPhotoId;
-
-    const buttonContent = displaySpinner
-        ? <Spinner />
-        : photoLikedByUser ? "Unlike" : "Like";
-
-    const buttonClickHandler = (id) => photoLikedByUser ? unlikePhoto(id) : likePhoto(id)
-
-    const button = isAuthenticated
-        ? <Button variant="success" disabled={displaySpinner} onClick={() => buttonClickHandler(photo.id)}>
-            {buttonContent}
-        </Button>
-        : null;
-
-
     return (
         <div className="ImageCard__Wrapper">
             <img
@@ -31,15 +12,42 @@ const ImageCard = ({ photo, likePhoto, unlikePhoto, likeRequestPhotoId }) => {
                 alt={photo.alt_description}
                 title={photo.description}
             ></img>
-            <div className="ImageCard__Footer">
-                <span>
-                    By&nbsp;
-                    <a className="ImageCard__UserLink" href={photo.user.links.html} target="_blank" rel="noreferrer">{photo.user.name}</a>
-                </span>
-                {button}   
-            </div>
+            <ImageCardFooter
+                photo={photo}
+                likePhoto={likePhoto}
+                unlikePhoto={unlikePhoto}
+                likeRequestPhotoId={likeRequestPhotoId} />
         </div>
     );
 } 
+
+const ImageCardFooter = ({ photo, likePhoto, unlikePhoto, likeRequestPhotoId }) => {
+    const { isAuthenticated } = useContext(UserContext);
+
+    const likedByUser = photo.liked_by_user;
+    const displaySpinner = photo.id === likeRequestPhotoId;
+
+    const buttonContent = displaySpinner
+        ? <Spinner style={{ padding: "12px 16px", marginTop: 0 }} />
+        : likedByUser ? "Unlike" : "Like";
+
+    const buttonClickHandler = id => likedByUser ? unlikePhoto(id) : likePhoto(id);
+
+    const button = isAuthenticated()
+        ? <Button variant="success" disabled={displaySpinner} onClick={() => buttonClickHandler(photo.id)}>
+            {buttonContent}
+        </Button>
+        : null;
+
+    return (
+        <div className="ImageCard__Footer">
+            <span>
+                By&nbsp;
+                <a className="ImageCard__UserLink" href={photo.user.links.html} target="_blank" rel="noreferrer">{photo.user.name}</a>
+            </span>
+            {button}   
+        </div>
+    );
+}
 
 export default ImageCard;
