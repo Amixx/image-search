@@ -1,7 +1,7 @@
 import { createApi } from 'unsplash-js';
 
 const api = createApi({
-    accessKey: 'IYq49rfboEk4HuDgOxQUVqUsQRgt4aUXeCSCyKtxkxk',
+    accessKey: process.env.REACT_APP_UNSPLASH_ACCESS_KEY,
 });
 
 export default api;
